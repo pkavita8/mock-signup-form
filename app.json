@@ -1,0 +1,12 @@
+{
+  "name": "goDutch",
+  "displayName": "goDutch",
+  "expo": {
+    "name": "goDutch",
+    "slug": "goDutch",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
