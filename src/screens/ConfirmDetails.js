@@ -20,7 +20,7 @@ const SetUpAccount = () => {
     dispatch(
       CommonActions.reset({
         index: 0,
-        routeNames: ["SignUp"],
+        routes: [{ name: "SignUp" }],
       })
     );
   };
