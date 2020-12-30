@@ -8,11 +8,22 @@ import CustomButton from "../components/CustomButton";
 import CustomText from "../components/CustomText";
 import { addNewUser } from "../actions/Users";
 import { connect } from "react-redux";
-import { useNavigation, useRoute } from "@react-navigation/native";
+import {
+  useNavigation,
+  useRoute,
+  CommonActions,
+} from "@react-navigation/native";
 const SetUpAccount = () => {
-  const navigation = useNavigation();
+  const { dispatch } = useNavigation();
   const route = useRoute();
-  const onPressContinue = () => {};
+  const onPressContinue = () => {
+    dispatch(
+      CommonActions.reset({
+        index: 0,
+        routeNames: ["SignUp"],
+      })
+    );
+  };
 
   return (
     <View testID="mainContainer" style={styles.mainContainer}>
@@ -33,13 +44,17 @@ const SetUpAccount = () => {
         <View style={styles.bottomLine}></View>
         <CustomText text={route.params.user.upiID} color={"#5A67F2"} />
         <View style={styles.bottomLine}></View>
-        <CustomText text="Profession" />
-        <View style={styles.bottomLine}></View>
-        <CustomText
-          text={route.params.user.currentProfession}
-          color={"#5A67F2"}
-        />
-        <View style={styles.bottomLine}></View>
+        {route.params.user.currentProfession ? (
+          <>
+            <CustomText text="Profession" />
+            <View style={styles.bottomLine}></View>
+            <CustomText
+              text={route.params.user.currentProfession}
+              color={"#5A67F2"}
+            />
+            <View style={styles.bottomLine}></View>
+          </>
+        ) : null}
 
         <CustomButton
           testID="continueButton"
