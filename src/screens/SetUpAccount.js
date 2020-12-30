@@ -33,7 +33,7 @@ const SetUpAccount = () => {
       setErrorMessage("Please enter a valid name.");
     } else if (!upiID.match(regexToValidateUPIID)) {
       setShowError(true);
-      setErrorMessage("Please enter a valid name.");
+      setErrorMessage("Please enter a valid UPI ID.");
     } else {
       setShowError(false);
       navigation.navigate("ConfirmDetails", {
