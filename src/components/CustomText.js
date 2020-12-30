@@ -10,6 +10,10 @@ export default class CustomText extends Component {
         style={[
           styles.text,
           this.props.color ? { color: this.props.color } : styles.color,
+          this.props.fontSize
+            ? { fontSize: this.props.fontSize }
+            : { fontSize: 16 },
+          this.props.style,
         ]}
       >
         {this.props.text}
