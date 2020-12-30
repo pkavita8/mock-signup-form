@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     borderColor: "#F1F1F1",
     borderRadius: 5,
     marginTop: 10,
+    textAlign: "center",
   },
   flexDirectionRow: {
     display: "flex",
