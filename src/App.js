@@ -15,9 +15,27 @@ export default class App extends Component {
       <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="SignUp">
-            <Stack.Screen name="SignUp" component={SignUp} />
-            <Stack.Screen name="SetUpAccount" component={SetUpAccount} />
-            <Stack.Screen name="ConfirmDetails" component={ConfirmDetails} />
+            <Stack.Screen
+              name="SignUp"
+              component={SignUp}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="SetUpAccount"
+              component={SetUpAccount}
+              options={{
+                headerTransparent: true,
+                title: "",
+              }}
+            />
+            <Stack.Screen
+              name="ConfirmDetails"
+              component={ConfirmDetails}
+              options={{
+                headerTransparent: true,
+                title: "",
+              }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
