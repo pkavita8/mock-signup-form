@@ -7,6 +7,7 @@ import {
 import CustomButton from "../components/CustomButton";
 import CustomTextInput from "../components/CustomTextInputWithLabel";
 import CustomText from "../components/CustomText";
+import logo from "../assets/images/logo.png";
 import { addNewUser } from "../actions/Users";
 import { connect } from "react-redux";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -52,6 +53,7 @@ const SetUpAccount = () => {
         style={{ paddingLeft: 20, paddingBottom: 10 }}
       />
       <View testID="primaryContainer" style={styles.primaryContainer}>
+        <Image testID="logo" style={styles.logo} source={logo} />
         <CustomText text="Current Profession" />
         <View testID="optionsContainer" style={styles.optionsContainer}>
           <CustomButton
@@ -144,7 +146,15 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 5,
+    marginBottom: 15,
+  },
+  logo: {
+    height: 70,
+    width: 70,
+    resizeMode: "contain",
+    alignSelf: "center",
+    position: "absolute",
+    top: hp("5"),
   },
 });
 export default SetUpAccount;
