@@ -20,6 +20,22 @@ export default class CustomTextInput extends Component {
           >
             {this.props.label}
           </Text>
+          {/* shows required sign if value is true*/}
+          {this.props.requiredField ? (
+            <Text
+              testID="required"
+              style={[
+                styles.label,
+                styles.requiredSignColor,
+                this.props.fontSize
+                  ? { fontSize: this.props.fontSize }
+                  : { fontSize: 16 },
+                this.props.labelStyle,
+              ]}
+            >
+              *
+            </Text>
+          ) : null}
         </View>
         <TextInput
           testID={this.props.inputTestID}
@@ -28,6 +44,11 @@ export default class CustomTextInput extends Component {
           value={this.props.value}
           style={[styles.textInput, this.props.inputStyle]}
           onChangeText={this.props.onChangeText}
+          keyboardType={
+            this.props.keyboardType ? this.props.keyboardType : "default"
+          }
+          editable={true}
+          onSubmitEditing={this.props.onSubmitEditing}
         />
       </View>
     );
