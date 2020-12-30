@@ -56,10 +56,7 @@ const SignUp = () => {
             if (text.length <= 10) {
               setMobileNumber(text);
               setShowError(false);
-            } else {
-              setShowError(true);
-              setErrorMessage("Number cannot exceed 10 digits. ");
-            }
+            } 
           }}
           keyboardType="phone-pad"
           onSubmitEditing={onPressContinue}
