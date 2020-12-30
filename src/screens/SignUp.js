@@ -21,7 +21,7 @@ const SignUp = () => {
   const onPressContinue = () => {
     const regexToValidateMobileNUmber = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     if (!mobileNumber) {
-      setShowError("true");
+      setShowError(true);
       setErrorMessage("Please enter a mobile number.");
     } else if (mobileNumber.match(regexToValidateMobileNUmber)) {
       setShowError(false);
@@ -53,7 +53,13 @@ const SignUp = () => {
           requiredField={true}
           value={mobileNumber}
           onChangeText={(text) => {
-            setMobileNumber(text);
+            if (text.length <= 10) {
+              setMobileNumber(text);
+              setShowError(false);
+            } else {
+              setShowError(true);
+              setErrorMessage("Number cannot exceed 10 digits. ");
+            }
           }}
           keyboardType="phone-pad"
           onSubmitEditing={onPressContinue}
